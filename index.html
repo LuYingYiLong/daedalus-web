@@ -108,50 +108,54 @@
 				<h2 id="loop-title" data-i18n-html="loop.title">From a request<br />to evidence.</h2>
 				<p data-i18n="loop.description">Follow the agent’s work without losing the right to decide what happens next.</p>
 			</div>
-			<div class="run-panel" data-run-panel>
-				<div class="run-panel-bar">
-					<span class="run-dot"></span><span>RUN / 042</span><span class="run-status">READY TO REVIEW</span>
-				</div>
-				<div class="run-task">
-					<p data-i18n="run.requestLabel">REQUEST</p>
-					<h3 data-i18n="run.request">Prepare the onboarding view for a first project.</h3>
-				</div>
-				<div class="run-steps" role="tablist" aria-label="Agent run steps" data-i18n-aria-label="access.runSteps">
-					<button class="run-step is-active" type="button" role="tab" aria-selected="true"
-						data-step="understand">
-						<span class="run-step-number">01</span><span data-i18n="run.stepLabels.understand">UNDERSTAND</span>
-					</button>
-					<button class="run-step" type="button" role="tab" aria-selected="false" data-step="plan">
-						<span class="run-step-number">02</span><span data-i18n="run.stepLabels.plan">PLAN</span>
-					</button>
-					<button class="run-step" type="button" role="tab" aria-selected="false" data-step="act">
-						<span class="run-step-number">03</span><span data-i18n="run.stepLabels.act">ACT</span>
-					</button>
-					<button class="run-step" type="button" role="tab" aria-selected="false" data-step="verify">
-						<span class="run-step-number">04</span><span data-i18n="run.stepLabels.verify">VERIFY</span>
-					</button>
-				</div>
-				<div class="run-content" aria-live="polite">
-					<p class="run-kicker">PROJECT CONTEXT</p>
-					<p class="run-main">
-						Reading project conventions, workspace files, session context, and
-						available tools.
-					</p>
-					<div class="run-code">
-						<span>✓</span> workspace / 18 files indexed<br /><span>✓</span>
-						instructions / AGENTS.md applied<br /><span>✓</span> tools / 12
-						available within policy
+			<div class="timeline-layout" data-timeline>
+				<ol class="timeline-steps" aria-label="Agent run steps" data-i18n-aria-label="access.runSteps">
+					<li class="timeline-step is-active" data-step="understand">
+						<button class="timeline-trigger" type="button" aria-current="step" data-step="understand">
+							<span class="timeline-marker">01</span><span data-i18n="run.stepLabels.understand">UNDERSTAND</span>
+						</button>
+					</li>
+					<li class="timeline-step" data-step="plan">
+						<button class="timeline-trigger" type="button" aria-current="false" data-step="plan">
+							<span class="timeline-marker">02</span><span data-i18n="run.stepLabels.plan">PLAN</span>
+						</button>
+					</li>
+					<li class="timeline-step" data-step="act">
+						<button class="timeline-trigger" type="button" aria-current="false" data-step="act">
+							<span class="timeline-marker">03</span><span data-i18n="run.stepLabels.act">ACT</span>
+						</button>
+					</li>
+					<li class="timeline-step" data-step="verify">
+						<button class="timeline-trigger" type="button" aria-current="false" data-step="verify">
+							<span class="timeline-marker">04</span><span data-i18n="run.stepLabels.verify">VERIFY</span>
+						</button>
+					</li>
+				</ol>
+				<div class="timeline-stage">
+					<div class="run-panel" data-run-panel>
+						<div class="run-panel-bar">
+							<span class="run-dot"></span><span class="studio-icon studio-icon--workflow" aria-hidden="true"></span><span>RUN / 042</span><span class="run-status">READY TO REVIEW</span>
+						</div>
+						<div class="run-task">
+							<p data-i18n="run.requestLabel">REQUEST</p>
+							<h3 data-i18n="run.request">Prepare the onboarding view for a first project.</h3>
+						</div>
+						<div class="run-content">
+							<p class="run-kicker">PROJECT CONTEXT</p>
+							<p class="run-main">Reading project conventions, workspace files, session context, and available tools.</p>
+							<div class="run-code"><span>✓</span> workspace / 18 files indexed<br /><span>✓</span> instructions / AGENTS.md applied<br /><span>✓</span> tools / 12 available within policy</div>
+						</div>
+						<div class="run-footer">
+							<span data-i18n="run.footerReview">ALL CHANGES REQUIRE YOUR REVIEW</span><span data-i18n="run.footerScroll">SCROLL TO INSPECT ↓</span>
+						</div>
 					</div>
-				</div>
-				<div class="run-footer">
-					<span data-i18n="run.footerReview">ALL CHANGES REQUIRE YOUR REVIEW</span><span data-i18n="run.footerScroll">SCROLL TO INSPECT ↓</span>
 				</div>
 			</div>
 		</section>
 		<section id="control" class="control section-grid" aria-labelledby="control-title">
 			<div class="control-visual" aria-hidden="true">
 				<div class="control-topline">
-					<span data-i18n="controlVisual.changeSet">CHANGE SET / 03</span><span>+43 −12</span>
+					<span class="control-label"><span class="studio-icon studio-icon--git-diff"></span><span data-i18n="controlVisual.changeSet">CHANGE SET / 03</span></span><span>+43 −12</span>
 				</div>
 				<div class="diff-line">
 					<span>12</span><code>const <b>project</b> = await workspace.open();</code>
@@ -191,17 +195,17 @@
 			<h2 id="context-title" data-i18n-html="context.title">Work with the project,<br />not around it.</h2>
 			<div class="context-items">
 				<article>
-					<span>01</span>
+					<div class="context-card-meta"><span>01</span><span class="studio-icon studio-icon--terminal" aria-hidden="true"></span></div>
 					<h3 data-i18n="context.codebases.title">Codebases</h3>
 					<p data-i18n="context.codebases.description">Files, Git history, diagnostics, terminals, and team instructions in one working context.</p>
 				</article>
 				<article>
-					<span>02</span>
+					<div class="context-card-meta"><span>02</span><span class="studio-icon studio-icon--mcp" aria-hidden="true"></span></div>
 					<h3 data-i18n="context.tools.title">Connected tools</h3>
 					<p data-i18n="context.tools.description">MCP servers and Skills extend an agent without slipping past its review and approval boundaries.</p>
 				</article>
 				<article>
-					<span>03</span>
+					<div class="context-card-meta"><span>03</span><span class="studio-icon studio-icon--workflow" aria-hidden="true"></span></div>
 					<h3 data-i18n="context.godot.title">Godot, deeply</h3>
 					<p data-i18n="context.godot.description">When the project is a game, go beyond code: scenes, resources, editor patches, and headless checks.</p>
 				</article>
@@ -216,22 +220,22 @@
 			</div>
 			<div class="depth-grid">
 				<article class="depth-card card-large">
-					<span>01 / MODELS</span>
+					<div class="depth-card-meta"><span>01 / MODELS</span><span class="studio-icon studio-icon--agent" aria-hidden="true"></span></div>
 					<h3 data-i18n="depth.models.title">Choose the model for the job.</h3>
 					<p data-i18n="depth.models.description">Use built-in providers or compatible OpenAI, Responses, and Anthropic endpoints.</p>
 				</article>
 				<article class="depth-card">
-					<span>02 / MCP</span>
+					<div class="depth-card-meta"><span>02 / MCP</span><span class="studio-icon studio-icon--mcp" aria-hidden="true"></span></div>
 					<h3 data-i18n="depth.mcp.title">Connect the capabilities you need.</h3>
 					<p data-i18n="depth.mcp.description">Keep external tools visible and governed by the same policy layer.</p>
 				</article>
 				<article class="depth-card">
-					<span>03 / SKILLS</span>
+					<div class="depth-card-meta"><span>03 / SKILLS</span><span class="studio-icon studio-icon--skill" aria-hidden="true"></span></div>
 					<h3 data-i18n="depth.skills.title">Teach a repeatable way of working.</h3>
 					<p data-i18n="depth.skills.description">Give agents project-specific instructions and focused operating knowledge.</p>
 				</article>
 				<article class="depth-card card-invert">
-					<span>04 / WORKSPACE</span>
+					<div class="depth-card-meta"><span>04 / WORKSPACE</span><span class="studio-icon studio-icon--terminal" aria-hidden="true"></span></div>
 					<h3 data-i18n="depth.workspace.title">Keep the work in reach.</h3>
 					<p data-i18n="depth.workspace.description">Persistent sessions, panels, terminal tabs, and results—ready when you return.</p>
 				</article>
@@ -247,19 +251,19 @@
 			</div>
 			<div class="trust-list">
 				<div>
-					<span>01</span><strong data-i18n="trust.points.boundaries.title">Local workspace boundaries</strong>
+					<span class="trust-index">01<span class="studio-icon studio-icon--shield" aria-hidden="true"></span></span><strong data-i18n="trust.points.boundaries.title">Local workspace boundaries</strong>
 					<p data-i18n="trust.points.boundaries.description">Actions resolve inside an allowed project scope.</p>
 				</div>
 				<div>
-					<span>02</span><strong data-i18n="trust.points.approval.title">Explicit approval gates</strong>
+					<span class="trust-index">02<span class="studio-icon studio-icon--shield" aria-hidden="true"></span></span><strong data-i18n="trust.points.approval.title">Explicit approval gates</strong>
 					<p data-i18n="trust.points.approval.description">Writing, commands, and external actions stay deliberate.</p>
 				</div>
 				<div>
-					<span>03</span><strong data-i18n="trust.points.evidence.title">Persistent evidence</strong>
+					<span class="trust-index">03<span class="studio-icon studio-icon--shield" aria-hidden="true"></span></span><strong data-i18n="trust.points.evidence.title">Persistent evidence</strong>
 					<p data-i18n="trust.points.evidence.description">Plans, changes, output, warnings, and verification remain inspectable.</p>
 				</div>
 				<div>
-					<span>04</span><strong data-i18n="trust.points.secrets.title">Secrets kept out of ordinary config</strong>
+					<span class="trust-index">04<span class="studio-icon studio-icon--shield" aria-hidden="true"></span></span><strong data-i18n="trust.points.secrets.title">Secrets kept out of ordinary config</strong>
 					<p data-i18n="trust.points.secrets.description">Provider credentials and integration secrets are not ordinary project data.</p>
 				</div>
 			</div>

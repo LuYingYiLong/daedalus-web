@@ -5,9 +5,13 @@ let translations = null;
 let activeLanguage = "en";
 
 const panel = document.querySelector("[data-run-panel]");
-const runSteps = document.querySelectorAll(".run-step");
+const timeline = document.querySelector("[data-timeline]");
+const timelineSteps = document.querySelectorAll(".timeline-step");
+const timelineTriggers = document.querySelectorAll(".timeline-trigger");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
+
+let activeRunStep = "understand";
 
 
 function getValue(object, path) {
@@ -49,6 +53,27 @@ function renderRunState(stepName) {
 }
 
 
+function setRunStep(stepName) {
+	if (!translations || !timeline || !panel) return;
+
+	activeRunStep = stepName;
+	const stepCount = timelineSteps.length - 1;
+	const stepIndex = [...timelineSteps].findIndex((step) => step.dataset.step === stepName);
+
+	timelineSteps.forEach((step) => {
+		const selected = step.dataset.step === stepName;
+		step.classList.toggle("is-active", selected);
+		step.querySelector(".timeline-trigger")?.setAttribute("aria-current", selected ? "step" : "false");
+	});
+
+	if (stepIndex >= 0 && stepCount > 0) {
+		timeline.style.setProperty("--timeline-progress", String(stepIndex / stepCount));
+	}
+
+	renderRunState(stepName);
+}
+
+
 function renderTranslations() {
   const locale = translations[activeLanguage];
   document.documentElement.lang = locale.meta.htmlLang;
@@ -80,8 +105,7 @@ function renderTranslations() {
     if (typeof value === "string") element.setAttribute("href", value);
   });
 
-  const activeStep = document.querySelector(".run-step.is-active")?.dataset.step ?? "understand";
-  renderRunState(activeStep);
+	setRunStep(activeRunStep);
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.language === activeLanguage));
   });
@@ -106,17 +130,17 @@ function setLanguage(language) {
 
 
 function bindInteractions() {
-  runSteps.forEach((button) => {
-    button.addEventListener("click", () => {
-      const stepName = button.dataset.step;
-      runSteps.forEach((item) => {
-        const selected = item === button;
-        item.classList.toggle("is-active", selected);
-        item.setAttribute("aria-selected", String(selected));
-      });
-      renderRunState(stepName);
-    });
-  });
+	timelineTriggers.forEach((button) => {
+		button.addEventListener("click", () => {
+			const stepName = button.dataset.step;
+			const target = button.closest(".timeline-step");
+			setRunStep(stepName);
+			target?.scrollIntoView({
+				behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+				block: "center",
+			});
+		});
+	});
 
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.addEventListener("click", () => setLanguage(button.dataset.language));
@@ -137,14 +161,42 @@ function bindInteractions() {
 }
 
 
+function observeTimeline() {
+	if (!timeline || !("IntersectionObserver" in window)) return;
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			if (!entries.some((entry) => entry.isIntersecting)) return;
+
+			const readingLine = window.innerHeight * 0.43;
+			const focusedStep = [...timelineSteps].reduce((closest, step) => {
+				const bounds = step.getBoundingClientRect();
+				const distance = bounds.top <= readingLine && bounds.bottom >= readingLine
+					? 0
+					: Math.min(Math.abs(bounds.top - readingLine), Math.abs(bounds.bottom - readingLine));
+
+				if (!closest || distance < closest.distance) return { step, distance };
+				return closest;
+			}, null)?.step;
+
+			if (focusedStep) setRunStep(focusedStep.dataset.step);
+		},
+		{ rootMargin: "-40% 0px -45% 0px", threshold: 0 },
+	);
+
+	timelineSteps.forEach((step) => observer.observe(step));
+}
+
+
 async function initialize() {
   const response = await fetch("js/translations.json");
   if (!response.ok) throw new Error(`Unable to load translations: ${response.status}`);
 
   translations = await response.json();
-  activeLanguage = getInitialLanguage();
-  renderTranslations();
-  bindInteractions();
+	activeLanguage = getInitialLanguage();
+	renderTranslations();
+	bindInteractions();
+	observeTimeline();
 }
 
 
