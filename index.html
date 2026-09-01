@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description"
+		content="Daedalus Studio is a workspace for agents that understand context, take action, and prove the result." />
+	<meta name="theme-color" content="#090909" />
+	<meta property="og:title" content="Daedalus Studio — Make changes. Keep control." />
+	<meta property="og:description"
+		content="A workspace for agents that understand context, take action, and prove the result." />
+	<meta property="og:image" content="img/daedalus-studio.png" />
+	<meta property="og:type" content="website" />
+	<title>Daedalus Studio — Make changes. Keep control.</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet" />
+	<link rel="icon" href="img/icon.svg" type="image/svg+xml" />
+	<link rel="stylesheet" href="css/site.css" />
+	<script src="js/site.js" defer></script>
+</head>
+
+<body>
+	<a class="skip-link" href="#main">跳到主要内容</a>
+	<header class="site-header">
+		<a class="brand" href="#top" aria-label="Daedalus Studio 首页">
+			<img src="img/icon.svg" alt="" class="brand-icon"/>
+			<span>DAEDALUS STUDIO</span>
+		</a>
+		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+			<span class="sr-only">打开导航</span><span></span><span></span>
+		</button>
+		<nav id="site-nav" class="site-nav" aria-label="主导航">
+			<a href="#loop">WORK LOOP</a><a href="#control">CONTROL</a><a href="#depth">DEPTH</a><a
+				href="#trust">TRUST</a>
+		</nav>
+		<a class="header-link" href="https://github.com/LuYingYiLong/daedalus-studio" target="_blank"
+			rel="noreferrer">GITHUB <span aria-hidden="true">↗</span></a>
+	</header>
+	<main id="main">
+		<section id="top" class="hero section-grid">
+			<div class="hero-copy">
+				<p class="eyebrow">
+					<span class="index">01</span> THE AGENT WORKBENCH
+				</p>
+				<h1>Make changes.<br /><em>Keep control.</em></h1>
+				<p class="hero-description">
+					Daedalus Studio is a workspace for agents that understand context,
+					take action, and prove the result.
+				</p>
+				<p class="hero-description zh-copy">
+					让 Agent 深入真实项目、留下可审查的改动，并用验证结果完成闭环。
+				</p>
+				<div class="hero-actions">
+					<a class="button button-primary"
+						href="https://github.com/LuYingYiLong/daedalus-studio/releases/latest" target="_blank"
+						rel="noreferrer">DOWNLOAD FOR WINDOWS <span aria-hidden="true">↘</span></a>
+					<a class="button button-quiet" href="#loop">SEE THE WORK LOOP <span aria-hidden="true">↓</span></a>
+				</div>
+				<dl class="hero-facts" aria-label="产品特征">
+					<div>
+						<dt>PROJECTS</dt>
+						<dd>CONTEXT-AWARE</dd>
+					</div>
+					<div>
+						<dt>CHANGES</dt>
+						<dd>REVIEWABLE</dd>
+					</div>
+					<div>
+						<dt>RESULTS</dt>
+						<dd>VERIFIABLE</dd>
+					</div>
+				</dl>
+			</div>
+			<div class="hero-visual" aria-label="Daedalus Studio 工作区界面预览">
+				<div class="visual-label">
+					<span>LIVE WORKSPACE</span><span>01 / 01</span>
+				</div>
+				<img src="img/daedalus-studio.png" alt="Daedalus Studio 桌面工作区" />
+				<div class="visual-stamp">
+					<span>AGENT</span><strong>READY<br />TO WORK</strong>
+				</div>
+				<div class="visual-caption">
+					<span>DESCRIBE → PLAN → REVIEW → VERIFY</span><span>LOCAL WORKSPACE</span>
+				</div>
+			</div>
+		</section>
+		<section class="statement" aria-labelledby="statement-title">
+			<p class="eyebrow"><span class="index">02</span> NOT A CHAT WINDOW</p>
+			<h2 id="statement-title">A complete record<br />of work.</h2>
+			<p>
+				A task should be more than an answer. It should have a plan, bounded
+				actions, a reviewable change set, and an honest verification result.
+			</p>
+		</section>
+		<section id="loop" class="work-loop section-grid" aria-labelledby="loop-title">
+			<div class="section-heading">
+				<p class="eyebrow"><span class="index">03</span> THE WORK LOOP</p>
+				<h2 id="loop-title">From a request<br />to evidence.</h2>
+				<p>
+					Follow the agent’s work without losing the right to decide what
+					happens next.
+				</p>
+			</div>
+			<div class="run-panel" data-run-panel>
+				<div class="run-panel-bar">
+					<span class="run-dot"></span><span>RUN / 042</span><span class="run-status">READY TO REVIEW</span>
+				</div>
+				<div class="run-task">
+					<p>REQUEST</p>
+					<h3>Prepare the onboarding view for a first project.</h3>
+				</div>
+				<div class="run-steps" role="tablist" aria-label="Agent run 的步骤">
+					<button class="run-step is-active" type="button" role="tab" aria-selected="true"
+						data-step="understand">
+						<span>01</span> UNDERSTAND
+					</button>
+					<button class="run-step" type="button" role="tab" aria-selected="false" data-step="plan">
+						<span>02</span> PLAN
+					</button>
+					<button class="run-step" type="button" role="tab" aria-selected="false" data-step="act">
+						<span>03</span> ACT
+					</button>
+					<button class="run-step" type="button" role="tab" aria-selected="false" data-step="verify">
+						<span>04</span> VERIFY
+					</button>
+				</div>
+				<div class="run-content" aria-live="polite">
+					<p class="run-kicker">PROJECT CONTEXT</p>
+					<p class="run-main">
+						Reading project conventions, workspace files, session context, and
+						available tools.
+					</p>
+					<div class="run-code">
+						<span>✓</span> workspace / 18 files indexed<br /><span>✓</span>
+						instructions / AGENTS.md applied<br /><span>✓</span> tools / 12
+						available within policy
+					</div>
+				</div>
+				<div class="run-footer">
+					<span>ALL CHANGES REQUIRE YOUR REVIEW</span><span>SCROLL TO INSPECT ↓</span>
+				</div>
+			</div>
+		</section>
+		<section id="control" class="control section-grid" aria-labelledby="control-title">
+			<div class="control-visual" aria-hidden="true">
+				<div class="control-topline">
+					<span>CHANGE SET / 03</span><span>+43 −12</span>
+				</div>
+				<div class="diff-line">
+					<span>12</span><code>const <b>project</b> = await workspace.open();</code>
+				</div>
+				<div class="diff-line added">
+					<span>13</span><code>+ await <b>verify</b>.run("typecheck");</code>
+				</div>
+				<div class="diff-line added">
+					<span>14</span><code>+ await <b>review</b>.present(project.diff);</code>
+				</div>
+				<div class="diff-line removed">
+					<span>15</span><code>- return response;</code>
+				</div>
+				<div class="approval-card">
+					<p>WRITE APPROVAL</p>
+					<strong>Review 3 file changes<br />before applying</strong>
+					<div><span>REVIEW DIFF</span><span>ALLOW ONCE</span></div>
+				</div>
+			</div>
+			<div class="section-heading control-copy">
+				<p class="eyebrow">
+					<span class="index">04</span> CONTROL IS A FEATURE
+				</p>
+				<h2 id="control-title">Move fast.<br />Stay informed.</h2>
+				<p>
+					Daedalus separates reading, proposing, writing, and destructive
+					actions. You see the intent, inspect the evidence, then decide how
+					far an agent can go.
+				</p>
+				<ul class="plain-list">
+					<li><span>01</span> Tool policies match the action’s risk</li>
+					<li><span>02</span> Diffs and terminal output stay with the run</li>
+					<li>
+						<span>03</span> Interrupted workflows restart from safe evidence
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section class="context-band" aria-labelledby="context-title">
+			<p class="eyebrow">
+				<span class="index">05</span> PROJECT-AWARE BY DEFAULT
+			</p>
+			<h2 id="context-title">Work with the project,<br />not around it.</h2>
+			<div class="context-items">
+				<article>
+					<span>01</span>
+					<h3>Codebases</h3>
+					<p>
+						Files, Git history, diagnostics, terminals, and team instructions
+						in one working context.
+					</p>
+				</article>
+				<article>
+					<span>02</span>
+					<h3>Connected tools</h3>
+					<p>
+						MCP servers and Skills extend an agent without slipping past its
+						review and approval boundaries.
+					</p>
+				</article>
+				<article>
+					<span>03</span>
+					<h3>Godot, deeply</h3>
+					<p>
+						When the project is a game, go beyond code: scenes, resources,
+						editor patches, and headless checks.
+					</p>
+				</article>
+			</div>
+		</section>
+		<section id="depth" class="depth section-grid" aria-labelledby="depth-title">
+			<div class="section-heading">
+				<p class="eyebrow">
+					<span class="index">06</span> DEPTH WITHOUT LOCK-IN
+				</p>
+				<h2 id="depth-title">Bring your<br />own intelligence.</h2>
+			</div>
+			<div class="depth-grid">
+				<article class="depth-card card-large">
+					<span>01 / MODELS</span>
+					<h3>Choose the model for the job.</h3>
+					<p>
+						Use built-in providers or compatible OpenAI, Responses, and
+						Anthropic endpoints.
+					</p>
+				</article>
+				<article class="depth-card">
+					<span>02 / MCP</span>
+					<h3>Connect the capabilities you need.</h3>
+					<p>
+						Keep external tools visible and governed by the same policy layer.
+					</p>
+				</article>
+				<article class="depth-card">
+					<span>03 / SKILLS</span>
+					<h3>Teach a repeatable way of working.</h3>
+					<p>
+						Give agents project-specific instructions and focused operating
+						knowledge.
+					</p>
+				</article>
+				<article class="depth-card card-invert">
+					<span>04 / WORKSPACE</span>
+					<h3>Keep the work in reach.</h3>
+					<p>
+						Persistent sessions, panels, terminal tabs, and results—ready when
+						you return.
+					</p>
+				</article>
+			</div>
+		</section>
+		<section id="trust" class="trust" aria-labelledby="trust-title">
+			<div class="trust-copy">
+				<p class="eyebrow">
+					<span class="index">07</span> BUILT FOR REAL WORK
+				</p>
+				<h2 id="trust-title">Autonomy needs<br /><em>boundaries.</em></h2>
+				<p>
+					Daedalus is designed around a simple premise: an agent can be
+					capable without becoming opaque.
+				</p>
+			</div>
+			<div class="trust-list">
+				<div>
+					<span>01</span><strong>Local workspace boundaries</strong>
+					<p>Actions resolve inside an allowed project scope.</p>
+				</div>
+				<div>
+					<span>02</span><strong>Explicit approval gates</strong>
+					<p>Writing, commands, and external actions stay deliberate.</p>
+				</div>
+				<div>
+					<span>03</span><strong>Persistent evidence</strong>
+					<p>
+						Plans, changes, output, warnings, and verification remain
+						inspectable.
+					</p>
+				</div>
+				<div>
+					<span>04</span><strong>Secrets kept out of ordinary config</strong>
+					<p>
+						Provider credentials and integration secrets are not ordinary
+						project data.
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="closing" aria-labelledby="closing-title">
+			<p class="eyebrow"><span class="index">08</span> DAEDALUS STUDIO</p>
+			<h2 id="closing-title">Make the change.<br />Know the result.</h2>
+			<p>For projects that need more than a generated answer.</p>
+			<div class="hero-actions">
+				<a class="button button-primary" href="https://github.com/LuYingYiLong/daedalus-studio/releases/latest"
+					target="_blank" rel="noreferrer">DOWNLOAD FOR WINDOWS <span aria-hidden="true">↘</span></a><a
+					class="button button-quiet" href="https://github.com/LuYingYiLong/daedalus-studio" target="_blank"
+					rel="noreferrer">VIEW ON GITHUB <span aria-hidden="true">↗</span></a>
+			</div>
+		</section>
+	</main>
+	<footer class="site-footer">
+		<a class="brand" href="#top"><span class="brand-mark">D</span><span>DAEDALUS STUDIO</span></a>
+		<p>AGENT WORKBENCH / OPEN SOURCE / 2026</p>
+		<a href="#top">BACK TO TOP ↑</a>
+	</footer>
+</body>
+
+</html>
