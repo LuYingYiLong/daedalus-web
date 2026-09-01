@@ -28,12 +28,7 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: |
-            index.html
-            .nojekyll
-            css
-            img
-            js
+          path: .
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
