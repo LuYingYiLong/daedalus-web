@@ -1,25 +1,153 @@
-const steps = {
-  understand: { kicker: "PROJECT CONTEXT", main: "Reading project conventions, workspace files, session context, and available tools.", code: ["workspace / 18 files indexed", "instructions / AGENTS.md applied", "tools / 12 available within policy"], status: "CONTEXT READY" },
-  plan: { kicker: "EXECUTION PLAN", main: "Turning a request into a sequence of reviewable steps before any file is changed.", code: ["plan / inspect the onboarding route", "propose / create the workspace picker", "verify / run the targeted checks"], status: "PLAN READY" },
-  act: { kicker: "APPROVED ACTIONS", main: "Applying the accepted change set and retaining each tool call with its project evidence.", code: ["write / src/widgets/home/index.tsx", "write / src/renderer/locales/zh-CN.json", "terminal / npm run typecheck"], status: "CHANGES STAGED" },
-  verify: { kicker: "VERIFICATION RESULT", main: "Showing the actual checks that ran, the outcome they produced, and anything that still needs attention.", code: ["typecheck / passed", "targeted tests / passed", "change set / ready for your review"], status: "READY TO REVIEW" },
-};
+const LANGUAGE_STORAGE_KEY = "daedalus-web-language";
+const SUPPORTED_LANGUAGES = new Set(["en", "zh-CN"]);
+
+let translations = null;
+let activeLanguage = "en";
 
 const panel = document.querySelector("[data-run-panel]");
 const runSteps = document.querySelectorAll(".run-step");
-runSteps.forEach((button) => {
-  button.addEventListener("click", () => {
-    const step = steps[button.dataset.step];
-    if (!step || !panel) return;
-    runSteps.forEach((item) => { const selected = item === button; item.classList.toggle("is-active", selected); item.setAttribute("aria-selected", String(selected)); });
-    panel.querySelector(".run-kicker").textContent = step.kicker;
-    panel.querySelector(".run-main").textContent = step.main;
-    panel.querySelector(".run-status").textContent = step.status;
-    panel.querySelector(".run-code").innerHTML = step.code.map((line) => `<span>✓</span> ${line}`).join("<br />");
-  });
-});
-
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
-menuToggle?.addEventListener("click", () => { const isOpen = menuToggle.getAttribute("aria-expanded") === "true"; menuToggle.setAttribute("aria-expanded", String(!isOpen)); siteNav?.classList.toggle("is-open", !isOpen); });
-siteNav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => { menuToggle?.setAttribute("aria-expanded", "false"); siteNav.classList.remove("is-open"); }));
+
+
+function getValue(object, path) {
+  return path.split(".").reduce((value, segment) => value?.[segment], object);
+}
+
+
+function getInitialLanguage() {
+  const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+  if (SUPPORTED_LANGUAGES.has(requestedLanguage)) return requestedLanguage;
+
+  try {
+    const savedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (SUPPORTED_LANGUAGES.has(savedLanguage)) return savedLanguage;
+  } catch {
+    // 存储不可用时继续使用浏览器语言
+  }
+
+  return navigator.language.toLowerCase().startsWith("zh") ? "zh-CN" : "en";
+}
+
+
+function renderRunState(stepName) {
+  const state = getValue(translations[activeLanguage], `run.states.${stepName}`);
+  if (!state || !panel) return;
+
+  panel.querySelector(".run-kicker").textContent = state.kicker;
+  panel.querySelector(".run-main").textContent = state.main;
+  panel.querySelector(".run-status").textContent = state.status;
+
+  const code = panel.querySelector(".run-code");
+  code.replaceChildren();
+  state.code.forEach((line, index) => {
+    const check = document.createElement("span");
+    check.textContent = "✓";
+    code.append(check, ` ${line}`);
+    if (index < state.code.length - 1) code.append(document.createElement("br"));
+  });
+}
+
+
+function renderTranslations() {
+  const locale = translations[activeLanguage];
+  document.documentElement.lang = locale.meta.htmlLang;
+  document.title = locale.meta.title;
+  document.querySelector("#meta-description")?.setAttribute("content", locale.meta.description);
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const value = getValue(locale, element.dataset.i18n);
+    if (typeof value === "string") element.textContent = value;
+  });
+
+  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    const value = getValue(locale, element.dataset.i18nHtml);
+    if (typeof value === "string") element.innerHTML = value;
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    const value = getValue(locale, element.dataset.i18nAriaLabel);
+    if (typeof value === "string") element.setAttribute("aria-label", value);
+  });
+
+  document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+    const value = getValue(locale, element.dataset.i18nAlt);
+    if (typeof value === "string") element.setAttribute("alt", value);
+  });
+
+  document.querySelectorAll("[data-i18n-href]").forEach((element) => {
+    const value = getValue(locale, element.dataset.i18nHref);
+    if (typeof value === "string") element.setAttribute("href", value);
+  });
+
+  const activeStep = document.querySelector(".run-step.is-active")?.dataset.step ?? "understand";
+  renderRunState(activeStep);
+  document.querySelectorAll("[data-language]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.language === activeLanguage));
+  });
+}
+
+
+function setLanguage(language) {
+  if (!translations || !SUPPORTED_LANGUAGES.has(language)) return;
+  activeLanguage = language;
+  renderTranslations();
+
+  try {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+  } catch {
+    // 存储不可用时仍允许当前页面切换语言
+  }
+
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", language);
+  window.history.replaceState(null, "", url);
+}
+
+
+function bindInteractions() {
+  runSteps.forEach((button) => {
+    button.addEventListener("click", () => {
+      const stepName = button.dataset.step;
+      runSteps.forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle("is-active", selected);
+        item.setAttribute("aria-selected", String(selected));
+      });
+      renderRunState(stepName);
+    });
+  });
+
+  document.querySelectorAll("[data-language]").forEach((button) => {
+    button.addEventListener("click", () => setLanguage(button.dataset.language));
+  });
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    siteNav?.classList.toggle("is-open", !isOpen);
+  });
+
+  siteNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle?.setAttribute("aria-expanded", "false");
+      siteNav.classList.remove("is-open");
+    });
+  });
+}
+
+
+async function initialize() {
+  const response = await fetch("js/translations.json");
+  if (!response.ok) throw new Error(`Unable to load translations: ${response.status}`);
+
+  translations = await response.json();
+  activeLanguage = getInitialLanguage();
+  renderTranslations();
+  bindInteractions();
+}
+
+
+initialize().catch((error) => {
+  console.error("Daedalus Studio translations could not be loaded.", error);
+});
