@@ -1,290 +1,423 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta id="meta-description" name="description"
-		content="Daedalus Studio is a workspace for agents that understand context, take action, and prove the result." />
-	<meta name="theme-color" content="#090909" />
-	<meta property="og:title" content="Daedalus Studio — Make changes. Keep control." />
-	<meta property="og:description"
-		content="A workspace for agents that understand context, take action, and prove the result." />
-	<meta property="og:image" content="img/daedalus-studio.png" />
-	<meta property="og:type" content="website" />
-	<title>Daedalus Studio — Make changes. Keep control.</title>
+	<meta name="theme-color" content="#000000" />
+	<meta name="description" content="Daedalus Studio：理解项目、规划任务、审阅修改、验证结果。让每一个想法都有方向" />
+	<title>Daedalus Studio — 让想法，有方向</title>
+	<link rel="icon" href="img/icon.svg" type="image/svg+xml" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet" />
-	<link rel="icon" href="img/icon.svg" type="image/svg+xml" />
-	<link rel="stylesheet" href="css/site.css" />
-	<script src="js/site.js" defer></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Manrope:wght@400;500;700;800&amp;family=Noto+Sans+SC:wght@400;500;700;800&amp;display=swap" />
+	<link rel="stylesheet" href="css/compass.css" />
+	<script src="js/compass.js" defer></script>
 </head>
 
 <body>
-	<a class="skip-link" href="#main" data-i18n="access.skip">Skip to content</a>
-	<header class="site-header">
-		<a class="brand" href="#top" aria-label="Daedalus Studio home" data-i18n-aria-label="access.home">
-			<img src="img/icon.svg" alt="" class="brand-icon"/>
-			<span>DAEDALUS STUDIO</span>
-		</a>
-		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-			<span class="sr-only" data-i18n="access.menu">Open navigation</span><span></span><span></span>
-		</button>
-		<nav id="site-nav" class="site-nav" aria-label="主导航">
-			<a href="#loop" data-i18n="nav.workLoop">WORK LOOP</a>
-			<a href="#control" data-i18n="nav.control">CONTROL</a>
-			<a href="#depth" data-i18n="nav.depth">DEPTH</a>
-			<a href="#trust" data-i18n="nav.trust">TRUST</a>
-			<a href="https://daedalus-docs.readthedocs.io/en/latest/" data-i18n="nav.docs" data-i18n-href="links.docs">DOCS</a>
-			<div class="language-switcher" role="group" aria-label="Language" data-i18n-aria-label="access.language">
-				<button type="button" data-language="en" aria-pressed="true">EN</button>
-				<span aria-hidden="true">/</span>
-				<button type="button" data-language="zh-CN" aria-pressed="false">中文</button>
-			</div>
+	<a class="skip-link" href="#studio" data-copy="skip">跳过动画，探索 Studio</a>
+	<header class="header">
+		<a class="brand" href="#understand" aria-label="Daedalus Studio"><span>DAEDALUS<span class="brand-light">
+					STUDIO</span></span></a>
+		<nav aria-label="主导航">
+			<a href="#understand" data-copy="overview">探索</a><a href="https://daedalus-docs.readthedocs.io/en/latest/"
+				data-copy="docs">文档</a>
 		</nav>
-		<a
-			class="header-link"
-			href="https://github.com/LuYingYiLong/daedalus-studio" target="_blank"
-			rel="noreferrer"
-		>
-			GITHUB
-		<span aria-hidden="true">↗</span></a>
+		<div class="header-end">
+			<button id="language" type="button" aria-label="Switch to English">
+				EN</button><a class="github" href="https://github.com/LuYingYiLong/daedalus-studio">GITHUB</a>
+		</div>
 	</header>
-	<main id="main">
-		<section id="top" class="hero section-grid">
-			<div class="hero-copy">
-				<p class="eyebrow">
-					<span class="index">01</span> <span data-i18n="hero.eyebrow">THE AGENT WORKBENCH</span>
-				</p>
-				<h1 data-i18n-html="hero.title">Make changes.<br /><em>Keep control.</em></h1>
-				<p class="hero-description">
-					<span data-i18n="hero.description">Daedalus Studio is a workspace for agents that understand context, take action, and prove the result.</span>
-				</p>
-				<div class="hero-actions">
-					<a class="button button-primary"
-						href="https://github.com/LuYingYiLong/daedalus-studio/releases/latest" target="_blank"
-						rel="noreferrer"><span data-i18n="hero.download">DOWNLOAD FOR WINDOWS</span> <span aria-hidden="true">↘</span></a>
-					<a class="button button-quiet" href="#loop"><span data-i18n="hero.explore">SEE THE WORK LOOP</span> <span aria-hidden="true">↓</span></a>
-				</div>
-				<dl class="hero-facts" aria-label="产品特征">
-					<div>
-					<dt data-i18n="facts.projects.label">PROJECTS</dt>
-					<dd data-i18n="facts.projects.value">CONTEXT-AWARE</dd>
-					</div>
-					<div>
-					<dt data-i18n="facts.changes.label">CHANGES</dt>
-					<dd data-i18n="facts.changes.value">REVIEWABLE</dd>
-					</div>
-					<div>
-					<dt data-i18n="facts.results.label">RESULTS</dt>
-					<dd data-i18n="facts.results.value">VERIFIABLE</dd>
-					</div>
-				</dl>
-			</div>
-			<div class="hero-visual" aria-label="Daedalus Studio workspace preview" data-i18n-aria-label="access.workspacePreview">
-				<div class="visual-label">
-					<span data-i18n="hero.workspaceLabel">LIVE WORKSPACE</span><span>01 / 01</span>
-				</div>
-				<img src="img/daedalus-studio.png" alt="Daedalus Studio workspace" data-i18n-alt="access.workspaceImage" />
-				<div class="visual-stamp">
-					<span data-i18n="hero.stampLabel">AGENT</span><strong data-i18n-html="hero.stampValue">READY<br />TO WORK</strong>
-				</div>
-				<div class="visual-caption">
-					<span data-i18n="hero.caption">DESCRIBE → PLAN → REVIEW → VERIFY</span><span data-i18n="hero.local">LOCAL WORKSPACE</span>
-				</div>
-			</div>
-		</section>
-		<section class="statement" aria-labelledby="statement-title">
-			<p class="eyebrow"><span class="index">02</span> <span data-i18n="statement.eyebrow">NOT A CHAT WINDOW</span></p>
-			<h2 id="statement-title" data-i18n-html="statement.title">A complete record<br />of work.</h2>
-			<p data-i18n="statement.description">A task should be more than an answer. It should have a plan, bounded actions, a reviewable change set, and an honest verification result.</p>
-		</section>
-		<section id="loop" class="work-loop section-grid" aria-labelledby="loop-title">
-			<div class="section-heading">
-				<p class="eyebrow"><span class="index">03</span> <span data-i18n="loop.eyebrow">THE WORK LOOP</span></p>
-				<h2 id="loop-title" data-i18n-html="loop.title">From a request<br />to evidence.</h2>
-				<p data-i18n="loop.description">Follow the agent’s work without losing the right to decide what happens next.</p>
-			</div>
-			<div class="timeline-layout" data-timeline>
-				<ol class="timeline-steps" aria-label="Agent run steps" data-i18n-aria-label="access.runSteps">
-					<li class="timeline-step is-active" data-step="understand">
-						<button class="timeline-trigger" type="button" aria-current="step" data-step="understand">
-							<span class="timeline-marker">01</span><span data-i18n="run.stepLabels.understand">UNDERSTAND</span>
-						</button>
-					</li>
-					<li class="timeline-step" data-step="plan">
-						<button class="timeline-trigger" type="button" aria-current="false" data-step="plan">
-							<span class="timeline-marker">02</span><span data-i18n="run.stepLabels.plan">PLAN</span>
-						</button>
-					</li>
-					<li class="timeline-step" data-step="act">
-						<button class="timeline-trigger" type="button" aria-current="false" data-step="act">
-							<span class="timeline-marker">03</span><span data-i18n="run.stepLabels.act">ACT</span>
-						</button>
-					</li>
-					<li class="timeline-step" data-step="verify">
-						<button class="timeline-trigger" type="button" aria-current="false" data-step="verify">
-							<span class="timeline-marker">04</span><span data-i18n="run.stepLabels.verify">VERIFY</span>
-						</button>
-					</li>
-				</ol>
-				<div class="timeline-stage">
-					<div class="run-panel" data-run-panel>
-						<div class="run-panel-bar">
-							<span class="run-dot"></span><span class="studio-icon studio-icon--workflow" aria-hidden="true"></span><span>RUN / 042</span><span class="run-status">READY TO REVIEW</span>
-						</div>
-						<div class="run-task">
-							<p data-i18n="run.requestLabel">REQUEST</p>
-							<h3 data-i18n="run.request">Prepare the onboarding view for a first project.</h3>
-						</div>
-						<div class="run-content">
-							<p class="run-kicker">PROJECT CONTEXT</p>
-							<p class="run-main">Reading project conventions, workspace files, session context, and available tools.</p>
-							<div class="run-code"><span>✓</span> workspace / 18 files indexed<br /><span>✓</span> instructions / AGENTS.md applied<br /><span>✓</span> tools / 12 available within policy</div>
-						</div>
-						<div class="run-footer">
-							<span data-i18n="run.footerReview">ALL CHANGES REQUIRE YOUR REVIEW</span><span data-i18n="run.footerScroll">SCROLL TO INSPECT ↓</span>
-						</div>
+	<main id="journey">
+		<div class="stage">
+			<section class="destination" aria-labelledby="destination-title" id="studio">
+				<div class="destination-copy">
+					<p class="eyebrow">YOUR NEXT CHAPTER</p>
+					<h2 id="destination-title" data-copy="finalTitle">
+						想法，准备就绪。<br /><span>现在，开始创造。</span>
+					</h2>
+					<p data-copy="finalBody">
+						从第一句想法，到有据可查的结果。你的下一个项目，从 Daedalus Studio
+						开始。
+					</p>
+					<div class="actions">
+						<a class="primary" href="https://github.com/LuYingYiLong/daedalus-studio/releases/latest"><span
+								data-copy="download">下载 Windows 版</span>
+						</a><a href="https://daedalus-docs.readthedocs.io/en/latest/" data-copy="start">阅读入门文档</a>
 					</div>
 				</div>
+				<figure class="workspace">
+					<div class="workspace-bar">
+						<span>DAEDALUS STUDIO</span><span>YOUR LOCAL WORKSPACE</span>
+					</div>
+					<img src="img/daedalus-studio.png" alt="Daedalus Studio 工作区：项目、对话与工具面板" />
+				</figure>
+			</section>
+			<div class="story-surface">
+				<div class="watermark" aria-hidden="true">DAEDALUS</div>
+				<div class="instrument" aria-hidden="true">
+					<div class="instrument-scale"></div>
+					<span class="bearing north">N</span><span class="bearing east">E</span><span
+						class="bearing south">S</span><span class="bearing west">W</span>
+					<div class="orbit"></div>
+					<div class="logo-wrap">
+						<svg class="compass-svg" aria-hidden="true" width="512" height="512" version="1.1"
+							viewBox="0 0 2621.4 2621.4" id="svg4" sodipodi:docname="icon.svg"
+							inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)" inkscape:export-filename="icon-colorful.png"
+							inkscape:export-xdpi="96" inkscape:export-ydpi="96"
+							xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+							xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+							xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+							xmlns:svg="http://www.w3.org/2000/svg">
+							<defs id="defs4">
+								<linearGradient id="linearGradient15" inkscape:collect="always">
+									<stop style="stop-color: #1998de; stop-opacity: 1" offset="0.50629497"
+										id="stop14" />
+									<stop style="stop-color: #1d9fe4; stop-opacity: 1" offset="1" id="stop15" />
+								</linearGradient>
+								<linearGradient id="linearGradient13" inkscape:collect="always">
+									<stop style="stop-color: #1692da; stop-opacity: 1" offset="0.55347985" id="stop9" />
+									<stop style="stop-color: #1190de; stop-opacity: 1" offset="1" id="stop13" />
+								</linearGradient>
+								<linearGradient id="linearGradient8" inkscape:collect="always">
+									<stop style="stop-color: #0960ae; stop-opacity: 1" offset="0.49972305" id="stop7" />
+									<stop style="stop-color: #0b5ba8; stop-opacity: 1" offset="1" id="stop8" />
+								</linearGradient>
+								<inkscape:path-effect effect="fillet_chamfer" id="path-effect156" is_visible="true"
+									lpeversion="1"
+									nodesatellites_param="F,0,0,1,0,110.99971,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,114.82367,0,1 @ F,0,0,1,0,0,0,1"
+									radius="0" unit="px" method="auto" mode="F" chamfer_steps="1" flexible="false"
+									use_knot_distance="true" apply_no_radius="true" apply_with_radius="true"
+									only_selected="false" hide_knots="false" />
+								<linearGradient id="linearGradient11" inkscape:collect="always">
+									<stop style="stop-color: #dce6e8; stop-opacity: 1" offset="0.17300011"
+										id="stop12" />
+									<stop style="stop-color: #e7e9ec; stop-opacity: 1" offset="0.62464625" id="stop2" />
+								</linearGradient>
+								<linearGradient id="linearGradient9" inkscape:collect="always">
+									<stop style="stop-color: #239fd2; stop-opacity: 1" offset="0.31527093"
+										id="stop11" />
+									<stop style="stop-color: #50c5ec; stop-opacity: 1" offset="1" id="stop10" />
+								</linearGradient>
+								<linearGradient id="linearGradient4" inkscape:collect="always">
+									<stop style="stop-color: #d0e5f6; stop-opacity: 1" offset="0" id="stop4" />
+									<stop style="stop-color: #85a7ce; stop-opacity: 1" offset="1" id="stop5" />
+								</linearGradient>
+								<linearGradient inkscape:collect="always" xlink:href="#linearGradient4"
+									id="linearGradient5" x1="489.25659" y1="780.59576" x2="2167.8594" y2="1853.4467"
+									gradientUnits="userSpaceOnUse" />
+								<radialGradient inkscape:collect="always" xlink:href="#linearGradient9"
+									id="radialGradient11" cx="902.86896" cy="1489.7164" fx="902.86896" fy="1489.7164"
+									r="1247.4" gradientUnits="userSpaceOnUse"
+									gradientTransform="matrix(0.99252935,-2.1099751e-8,2.1919112e-8,1.0042933,423.88359,-179.78852)" />
+								<filter style="color-interpolation-filters: sRGB" inkscape:label="Drop Shadow"
+									id="filter124" x="-0.064034551" y="-0.063904509" width="1.1363471"
+									height="1.1363526">
+									<feFlood result="flood" in="SourceGraphic" flood-opacity="0.321569"
+										flood-color="rgb(0,0,0)" id="feFlood123" />
+									<feGaussianBlur result="blur" in="SourceGraphic" stdDeviation="58.739255014326652"
+										id="feGaussianBlur123" />
+									<feOffset result="offset" in="blur" dx="18.224298" dy="18.847351"
+										id="feOffset123" />
+									<feComposite result="comp1" operator="in" in="flood" in2="offset"
+										id="feComposite123" />
+									<feComposite result="comp2" operator="over" in="SourceGraphic" in2="comp1"
+										id="feComposite124" />
+								</filter>
+								<filter style="color-interpolation-filters: sRGB" inkscape:label="Drop Shadow"
+									id="filter145" x="0" y="0" width="1" height="1">
+									<feComposite result="comp2" operator="atop" in="comp1" in2="SourceGraphic"
+										id="feComposite145" />
+								</filter>
+								<filter style="color-interpolation-filters: sRGB" inkscape:label="Drop Shadow"
+									id="filter156" x="-0.1164114" y="-0.11641579" width="1.2622702" height="1.2548383">
+									<feFlood result="flood" in="SourceGraphic" flood-opacity="0.26041666666666669"
+										flood-color="rgb(2,56,96)" id="feFlood155" />
+									<feGaussianBlur result="blur" in="SourceGraphic" stdDeviation="71.069183"
+										id="feGaussianBlur155" />
+									<feOffset result="offset" in="blur" dx="43.146416" dy="32.242992"
+										id="feOffset155" />
+									<feComposite result="comp1" operator="in" in="flood" in2="offset"
+										id="feComposite155" />
+									<feComposite result="comp2" operator="over" in="SourceGraphic" in2="comp1"
+										id="feComposite156" />
+								</filter>
+								<linearGradient inkscape:collect="always" xlink:href="#linearGradient11"
+									id="linearGradient1" x1="1044.9061" y1="896.03833" x2="1978.3636" y2="1892.3514"
+									gradientUnits="userSpaceOnUse" />
+								<radialGradient inkscape:collect="always" xlink:href="#linearGradient8"
+									id="radialGradient5" gradientUnits="userSpaceOnUse"
+									gradientTransform="matrix(0.99999272,-8.0382254e-6,8.0382889e-6,1.0000007,64.462009,154.66839)"
+									cx="1255.5504" cy="1161.6646" fx="1255.5504" fy="1161.6646" r="1247.4" />
+								<radialGradient inkscape:collect="always" xlink:href="#linearGradient13"
+									id="radialGradient6" gradientUnits="userSpaceOnUse"
+									gradientTransform="matrix(0.99252535,-1.3691673e-7,5.5784465e-7,1.0042935,423.89138,-179.78849)"
+									cx="902.86896" cy="1489.7164" fx="902.86896" fy="1489.7164" r="1247.4" />
+								<radialGradient inkscape:collect="always" xlink:href="#linearGradient15"
+									id="radialGradient13" gradientUnits="userSpaceOnUse"
+									gradientTransform="matrix(0.99252536,-2.7212835e-8,1.3325975e-8,1.0042934,423.89,-179.78858)"
+									cx="902.87115" cy="1489.7164" fx="902.87115" fy="1489.7164" r="1247.4" />
+								<filter style="color-interpolation-filters: sRGB" inkscape:label="Drop Shadow"
+									id="filter24" x="-0.03876936" y="-0.038317513" width="1.0823849" height="1.0814247">
+									<feFlood result="flood" in="SourceGraphic" flood-opacity="0.192157"
+										flood-color="rgb(0,0,0)" id="feFlood23" />
+									<feGaussianBlur result="blur" in="SourceGraphic" stdDeviation="20"
+										id="feGaussianBlur23" />
+									<feOffset result="offset" in="blur" dx="6.000000" dy="6.000000" id="feOffset23" />
+									<feComposite result="comp1" operator="in" in="flood" in2="offset"
+										id="feComposite23" />
+									<feComposite result="comp2" operator="over" in="SourceGraphic" in2="comp1"
+										id="feComposite24" />
+								</filter>
+								<filter style="color-interpolation-filters: sRGB" inkscape:label="Drop Shadow"
+									id="filter26" x="-0.038194944" y="-0.038316596" width="1.0811643"
+									height="1.0814228">
+									<feFlood result="flood" in="SourceGraphic" flood-opacity="0.192157"
+										flood-color="rgb(0,0,0)" id="feFlood24" />
+									<feGaussianBlur result="blur" in="SourceGraphic" stdDeviation="20"
+										id="feGaussianBlur24" />
+									<feOffset result="offset" in="blur" dx="6.000000" dy="6.000000" id="feOffset24" />
+									<feComposite result="comp1" operator="in" in="flood" in2="offset"
+										id="feComposite25" />
+									<feComposite result="comp2" operator="over" in="SourceGraphic" in2="comp1"
+										id="feComposite26" />
+								</filter>
+								<filter style="color-interpolation-filters: sRGB" inkscape:label="Drop Shadow"
+									id="filter76" x="-0.29179877" y="-0.29179877" width="1.5611515" height="1.5611515">
+									<feFlood result="flood" in="SourceGraphic" flood-opacity="1.000000"
+										flood-color="rgb(16,97,160)" id="feFlood75" />
+									<feGaussianBlur result="blur" in="SourceGraphic" stdDeviation="40.000000"
+										id="feGaussianBlur75" />
+									<feOffset result="offset" in="blur" dx="-8.000000" dy="-8.000000" id="feOffset75" />
+									<feComposite result="comp1" operator="out" in="flood" in2="offset"
+										id="feComposite75" />
+									<feComposite result="comp2" operator="atop" in="comp1" in2="SourceGraphic"
+										id="feComposite76" />
+								</filter>
+								<mask id="stent-aperture" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse"
+									x="-600" y="-600" width="3900" height="3900" style="mask-type: luminance">
+									<rect x="-600" y="-600" width="3900" height="3900" fill="white" />
+									<circle cx="1305.505" cy="1319.3" r="178.205" fill="black" />
+								</mask>
+							</defs>
+							<sodipodi:namedview id="namedview4" pagecolor="#505050" bordercolor="#eeeeee"
+								borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0"
+								inkscape:pagecheckerboard="0" inkscape:deskcolor="#505050" inkscape:zoom="0.75878908"
+								inkscape:cx="54.033461" inkscape:cy="241.83268" inkscape:window-width="1920"
+								inkscape:window-height="991" inkscape:window-x="-9" inkscape:window-y="-9"
+								inkscape:window-maximized="1" inkscape:current-layer="g4" />
+							<g stroke-width="2.7844" id="g4" transform="translate(-9.3075751,-5.623693)"
+								inkscape:label="logo">
+								<g id="compass-body" mask="url(#stent-aperture)">
+									<g id="g1" inkscape:label="shells">
+										<path id="path1" style="
+                          fill: url(#radialGradient5);
+                          stroke-width: 2.78524;
+                          stroke-dasharray: none;
+                        " d="M 1320.0126,2558.3647 V 1316.3237 H 63.31175 c 2.8786,685.3125 561.426,1242.081 1247.39095,1242.081 3.1052,0 6.21,-0.017 9.3099,-0.04 z"
+											inkscape:label="bottom-left-shell" />
+										<path id="path5" style="
+                          fill: url(#radialGradient6);
+                          stroke-width: 2.78524;
+                          stroke-dasharray: none;
+                        " d="M 2558.0937,1316.3237 H 1320.0126 v 1242.041 c 681.7134,-5.009 1235.2169,-559.8492 1238.0811,-1242.041 z"
+											inkscape:label="bottom-right-shell" />
+										<path id="path6" style="
+                          fill: url(#radialGradient11);
+                          stroke-width: 2.78524;
+                          stroke-dasharray: none;
+                          filter: url(#filter24);
+                        " d="M 1320.0076 63.632808 L 1320.0076 1316.3237 L 2558.0887 1316.3237 C 2558.0961 1314.5512 2558.0987 1312.778 2558.0987 1311.0038 C 2558.0987 626.34975 2003.4715 68.656077 1320.0076 63.632808 z "
+											inkscape:label="top-right-shell" />
+										<path id="path7" style="
+                          fill: url(#radialGradient13);
+                          stroke-width: 2.78524;
+                          stroke-dasharray: none;
+                          filter: url(#filter26);
+                        " d="M 63.306751 1316.3237 L 1320.0076 1316.3237 L 1320.0076 63.632808 C 1316.9069 63.610019 1313.8036 63.602808 1310.6977 63.602808 C 622.93776 63.602808 63.296751 623.26371 63.296751 1311.0038 C 63.296751 1312.7788 63.299302 1314.5503 63.306751 1316.3237 z "
+											inkscape:label="top-left-shell" />
+									</g>
+									<path
+										d="m 1373.1,276.68 c -33.466,-97.049 -87.013,-97.049 -120.49,0 l -185.18,546.63 c -32.347,97.056 -139.44,203.03 -235.38,236.5 l -543.28,185.18 c -97.049,33.466 -97.049,87.013 0,120.48 l 539.93,187.41 c 97.056,33.466 203.03,140.56 236.5,236.5 l 188.52,547.74 c 33.466,97.049 87.013,97.049 120.48,0 l 184.07,-544.39 c 32.347,-97.056 138.33,-203.03 235.38,-236.5 l 551.08,-188.53 c 97.049,-33.466 97.049,-87.013 0,-119.36 l -542.16,-182.95 c -97.056,-32.354 -203.03,-138.33 -236.5,-235.38 -3.3502,-1.112 -192.99,-553.31 -192.99,-553.31 z"
+										fill="#808080" id="path2" inkscape:label="four-pointed-star" style="
+                        display: inline;
+                        fill: url(#linearGradient5);
+                        filter: url(#filter124);
+                      " />
+									<path
+										d="M 637.63225,2045.1597 1624.4,1619.79 2037.611,647.95862 a 46.24711,46.24711 44.972529 0 0 -60.6965,-60.63829 L 1005.44,1001.48 579.71107,1987.1983 a 44.083548,44.083548 45.019887 0 0 57.92118,57.9614 z"
+										fill="#202020" id="path3" style="
+                        display: inline;
+                        fill: url(#linearGradient1);
+                        stroke-width: 2.78524;
+                        stroke-dasharray: none;
+                        filter: url(#filter156);
+                      " inkscape:path-effect="#path-effect156"
+										inkscape:original-d="m 535.7,2089.1 1088.7,-469.31 458.14,-1077.5 -1077.1,459.19 z"
+										inkscape:label="needle" />
+								</g>
+								<path
+									d="m 1305.5,1319.3 m -178.2,0 a 178.205,178.205 0 1 0 356.41,0 178.205,178.205 0 1 0 -356.41,0 z"
+									fill="#e0e0e0" id="path4" style="
+                      display: inline;
+                      fill: #229bda;
+                      fill-opacity: 1;
+                      filter: url(#filter76);
+                    " inkscape:label="stent" />
+							</g>
+						</svg>
+					</div>
+				</div>
+				<div class="chapters">
+					<section class="chapter is-active" id="understand" data-chapter="0" aria-labelledby="title-0">
+						<div class="chapter-copy">
+							<p class="eyebrow">01 / CONTEXT</p>
+							<h1 id="title-0" data-copy="title0">
+								先读项目，<br /><span>再动手。</span>
+							</h1>
+							<p class="description" data-copy="body0">
+								不用复制粘贴上下文。<br />它直接读取你的 Godot 项目，<br />理解场景、脚本和编辑器状态。
+							</p>
+						</div>
+						<aside class="chapter-detail">
+							<span class="detail-index">01 — LIVE PROJECT CONTEXT</span>
+							<h3 data-copy="detailTitle0">你的项目，不是空白对话。</h3>
+							<p data-copy="detailBody0">
+								当前场景、选中节点、脚本和诊断，<br />都成为这一次行动的上下文。
+							</p>
+							<div class="context-tree">
+								<span>my-game /</span><span>├─ Main.tscn</span><span>├─ Player.gd</span><span>└─
+									selected: Player</span><span class="accent">↳ editor context connected</span>
+							</div>
+						</aside>
+					</section>
+					<section class="chapter" id="plan" data-chapter="1" aria-labelledby="title-1">
+						<div class="chapter-copy">
+							<p class="eyebrow">02 / MOMENTUM</p>
+							<h2 id="title-1" data-copy="title1">
+								复杂任务，<br /><span>随时继续。</span>
+							</h2>
+							<p class="description" data-copy="body1">
+								计划、工具事件和检查点，<br />都会跟着任务保存。<br />关掉 Studio，也不会丢进度。
+							</p>
+						</div>
+						<aside class="chapter-detail">
+							<span class="detail-index">02 — DURABLE AGENT RUN</span>
+							<h3 data-copy="detailTitle1">一次开始，不必从头再来。</h3>
+							<p data-copy="detailBody1">
+								暂停、重启或切换工作区之后，<br />从上一个可靠状态继续。
+							</p>
+							<ol class="plan-list">
+								<li>
+									<span>01</span><span data-copy="plan1">读取现场</span><b>✓</b>
+								</li>
+								<li>
+									<span>02</span><span data-copy="plan2">执行任务</span><b>✓</b>
+								</li>
+								<li>
+									<span>03</span><span data-copy="plan3">保存进度</span><b>→</b>
+								</li>
+							</ol>
+						</aside>
+					</section>
+					<section class="chapter" id="review" data-chapter="2" aria-labelledby="title-2">
+						<div class="chapter-copy">
+							<p class="eyebrow">03 / CONTROL</p>
+							<h2 id="title-2" data-copy="title2">
+								让它动手，<br /><span>由你决定。</span>
+							</h2>
+							<p class="description" data-copy="body2">
+								修改先变成可审阅的差异。<br />写入、删除和命令，<br />都经过明确审批。
+							</p>
+						</div>
+						<aside class="chapter-detail">
+							<span class="detail-index">03 — APPROVAL GATES</span>
+							<h3 data-copy="detailTitle2">自动化，不越过你的边界。</h3>
+							<p data-copy="detailBody2">
+								读取、验证、提议、写入分级处理。<br />每次改变都能看见，再决定。
+							</p>
+							<div class="diff">
+								<span>CHANGE SET <b>+24 −08</b></span><code
+									class="removed">− return response;</code><code>+ await review(changes);</code><code>+ await verify(project);</code><small
+									data-copy="approval">等待你的审阅</small>
+							</div>
+						</aside>
+					</section>
+					<section class="chapter" id="verify" data-chapter="3" aria-labelledby="title-3">
+						<div class="chapter-copy">
+							<p class="eyebrow">04 / TRACE</p>
+							<h2 id="title-3" data-copy="title3">
+								任务结束，<br /><span>证据留下。</span>
+							</h2>
+							<p class="description" data-copy="body3">
+								终端输出、诊断、检查和变更，<br />跟随任务一起保存。<br />下次打开，直接接着真实状态继续。
+							</p>
+						</div>
+						<aside class="chapter-detail">
+							<span class="detail-index">04 — LOCAL TRACE</span>
+							<h3 data-copy="detailTitle3">不是一句「完成」，是一条记录。</h3>
+							<p data-copy="detailBody3">
+								结果、警告与失败原因，<br />都能在本地找回来。
+							</p>
+							<div class="verification">
+								<span>✓ <span data-copy="check1">代码检查</span><b>PASS</b></span><span>✓ <span
+										data-copy="check2">终端输出</span><b>SAVED</b></span><span>✓ <span
+										data-copy="check3">任务记录</span><b>READY</b></span>
+							</div>
+						</aside>
+					</section>
+				</div>
+				<div class="compass-caption" aria-hidden="true">
+					<span>DAEDALUS / DIRECTION ENGINE</span><span id="angle">000°</span>
+				</div>
+				<div class="stage-bottom">
+					<div class="scroll-cue">
+						<span data-copy="scroll">向下滚动，寻找方向</span>
+					</div>
+					<a href="#studio" data-copy="skipShort">直达 Studio</a>
+				</div>
 			</div>
-		</section>
-		<section id="control" class="control section-grid" aria-labelledby="control-title">
-			<div class="control-visual" aria-hidden="true">
-				<div class="control-topline">
-					<span class="control-label"><span class="studio-icon studio-icon--git-diff"></span><span data-i18n="controlVisual.changeSet">CHANGE SET / 03</span></span><span>+43 −12</span>
+			<nav class="chapter-nav" aria-label="探索进度">
+				<div class="ruler-track" aria-hidden="true">
+					<div class="ruler-ticks"></div>
+					<span class="ruler-cursor"></span>
 				</div>
-				<div class="diff-line">
-					<span>12</span><code>const <b>project</b> = await workspace.open();</code>
-				</div>
-				<div class="diff-line added">
-					<span>13</span><code>+ await <b>verify</b>.run("typecheck");</code>
-				</div>
-				<div class="diff-line added">
-					<span>14</span><code>+ await <b>review</b>.present(project.diff);</code>
-				</div>
-				<div class="diff-line removed">
-					<span>15</span><code>- return response;</code>
-				</div>
-				<div class="approval-card">
-					<p data-i18n="controlVisual.approvalLabel">WRITE APPROVAL</p>
-					<strong data-i18n-html="controlVisual.approvalTitle">Review 3 file changes<br />before applying</strong>
-					<div><span data-i18n="controlVisual.reviewDiff">REVIEW DIFF</span><span data-i18n="controlVisual.allowOnce">ALLOW ONCE</span></div>
-				</div>
-			</div>
-			<div class="section-heading control-copy">
-				<p class="eyebrow">
-					<span class="index">04</span> <span data-i18n="control.eyebrow">CONTROL IS A FEATURE</span>
-				</p>
-				<h2 id="control-title" data-i18n-html="control.title">Move fast.<br />Stay informed.</h2>
-				<p data-i18n="control.description">Daedalus separates reading, proposing, writing, and destructive actions. You see the intent, inspect the evidence, then decide how far an agent can go.</p>
-				<ul class="plain-list">
-					<li><span>01</span> <span data-i18n="control.points.risk">Tool policies match the action’s risk</span></li>
-					<li><span>02</span> <span data-i18n="control.points.evidence">Diffs and terminal output stay with the run</span></li>
-					<li><span>03</span> <span data-i18n="control.points.restart">Interrupted workflows restart from safe evidence</span></li>
-				</ul>
-			</div>
-		</section>
-		<section class="context-band" aria-labelledby="context-title">
-			<p class="eyebrow">
-				<span class="index">05</span> <span data-i18n="context.eyebrow">PROJECT-AWARE BY DEFAULT</span>
-			</p>
-			<h2 id="context-title" data-i18n-html="context.title">Work with the project,<br />not around it.</h2>
-			<div class="context-items">
-				<article>
-					<div class="context-card-meta"><span>01</span><span class="studio-icon studio-icon--terminal" aria-hidden="true"></span></div>
-					<h3 data-i18n="context.codebases.title">Codebases</h3>
-					<p data-i18n="context.codebases.description">Files, Git history, diagnostics, terminals, and team instructions in one working context.</p>
-				</article>
-				<article>
-					<div class="context-card-meta"><span>02</span><span class="studio-icon studio-icon--mcp" aria-hidden="true"></span></div>
-					<h3 data-i18n="context.tools.title">Connected tools</h3>
-					<p data-i18n="context.tools.description">MCP servers and Skills extend an agent without slipping past its review and approval boundaries.</p>
-				</article>
-				<article>
-					<div class="context-card-meta"><span>03</span><span class="studio-icon studio-icon--workflow" aria-hidden="true"></span></div>
-					<h3 data-i18n="context.godot.title">Godot, deeply</h3>
-					<p data-i18n="context.godot.description">When the project is a game, go beyond code: scenes, resources, editor patches, and headless checks.</p>
-				</article>
-			</div>
-		</section>
-		<section id="depth" class="depth section-grid" aria-labelledby="depth-title">
-			<div class="section-heading">
-				<p class="eyebrow">
-					<span class="index">06</span> <span data-i18n="depth.eyebrow">DEPTH WITHOUT LOCK-IN</span>
-				</p>
-				<h2 id="depth-title" data-i18n-html="depth.title">Bring your<br />own intelligence.</h2>
-			</div>
-			<div class="depth-grid">
-				<article class="depth-card card-large">
-					<div class="depth-card-meta"><span>01 / MODELS</span><span class="studio-icon studio-icon--agent" aria-hidden="true"></span></div>
-					<h3 data-i18n="depth.models.title">Choose the model for the job.</h3>
-					<p data-i18n="depth.models.description">Use built-in providers or compatible OpenAI, Responses, and Anthropic endpoints.</p>
-				</article>
-				<article class="depth-card">
-					<div class="depth-card-meta"><span>02 / MCP</span><span class="studio-icon studio-icon--mcp" aria-hidden="true"></span></div>
-					<h3 data-i18n="depth.mcp.title">Connect the capabilities you need.</h3>
-					<p data-i18n="depth.mcp.description">Keep external tools visible and governed by the same policy layer.</p>
-				</article>
-				<article class="depth-card">
-					<div class="depth-card-meta"><span>03 / SKILLS</span><span class="studio-icon studio-icon--skill" aria-hidden="true"></span></div>
-					<h3 data-i18n="depth.skills.title">Teach a repeatable way of working.</h3>
-					<p data-i18n="depth.skills.description">Give agents project-specific instructions and focused operating knowledge.</p>
-				</article>
-				<article class="depth-card card-invert">
-					<div class="depth-card-meta"><span>04 / WORKSPACE</span><span class="studio-icon studio-icon--terminal" aria-hidden="true"></span></div>
-					<h3 data-i18n="depth.workspace.title">Keep the work in reach.</h3>
-					<p data-i18n="depth.workspace.description">Persistent sessions, panels, terminal tabs, and results—ready when you return.</p>
-				</article>
-			</div>
-		</section>
-		<section id="trust" class="trust" aria-labelledby="trust-title">
-			<div class="trust-copy">
-				<p class="eyebrow">
-					<span class="index">07</span> <span data-i18n="trust.eyebrow">BUILT FOR REAL WORK</span>
-				</p>
-				<h2 id="trust-title" data-i18n-html="trust.title">Autonomy needs<br /><em>boundaries.</em></h2>
-				<p data-i18n="trust.description">Daedalus is designed around a simple premise: an agent can be capable without becoming opaque.</p>
-			</div>
-			<div class="trust-list">
-				<div>
-					<span class="trust-index">01<span class="studio-icon studio-icon--shield" aria-hidden="true"></span></span><strong data-i18n="trust.points.boundaries.title">Local workspace boundaries</strong>
-					<p data-i18n="trust.points.boundaries.description">Actions resolve inside an allowed project scope.</p>
-				</div>
-				<div>
-					<span class="trust-index">02<span class="studio-icon studio-icon--shield" aria-hidden="true"></span></span><strong data-i18n="trust.points.approval.title">Explicit approval gates</strong>
-					<p data-i18n="trust.points.approval.description">Writing, commands, and external actions stay deliberate.</p>
-				</div>
-				<div>
-					<span class="trust-index">03<span class="studio-icon studio-icon--shield" aria-hidden="true"></span></span><strong data-i18n="trust.points.evidence.title">Persistent evidence</strong>
-					<p data-i18n="trust.points.evidence.description">Plans, changes, output, warnings, and verification remain inspectable.</p>
-				</div>
-				<div>
-					<span class="trust-index">04<span class="studio-icon studio-icon--shield" aria-hidden="true"></span></span><strong data-i18n="trust.points.secrets.title">Secrets kept out of ordinary config</strong>
-					<p data-i18n="trust.points.secrets.description">Provider credentials and integration secrets are not ordinary project data.</p>
-				</div>
-			</div>
-		</section>
-		<section class="closing" aria-labelledby="closing-title">
-			<p class="eyebrow"><span class="index">08</span> <span data-i18n="closing.eyebrow">DAEDALUS STUDIO</span></p>
-			<h2 id="closing-title" data-i18n-html="closing.title">Make the change.<br />Know the result.</h2>
-			<p data-i18n="closing.description">For projects that need more than a generated answer.</p>
-			<div class="hero-actions">
-				<a class="button button-primary" href="https://github.com/LuYingYiLong/daedalus-studio/releases/latest"
-					target="_blank" rel="noreferrer"><span data-i18n="hero.download">DOWNLOAD FOR WINDOWS</span> <span aria-hidden="true">↘</span></a><a
-					class="button button-quiet" href="https://github.com/LuYingYiLong/daedalus-studio" target="_blank"
-					rel="noreferrer"><span data-i18n="closing.github">VIEW ON GITHUB</span> <span aria-hidden="true">↗</span></a>
-			</div>
-		</section>
+				<input class="ruler-input" type="range" min="0" max="400" step="1" value="0" aria-label="探索进度"
+					aria-valuetext="现场 · 0°" />
+			</nav>
+		</div>
 	</main>
-	<footer class="site-footer">
-		<a class="brand" href="#top"><img src="img/icon.svg" alt="" class="brand-icon"><span>DAEDALUS STUDIO</span></a>
-		<p data-i18n="footer.tagline">AGENT WORKBENCH / OPEN SOURCE / 2026</p>
-		<a href="#top" data-i18n="footer.backToTop">BACK TO TOP ↑</a>
-	</footer>
+	<noscript>
+		<style>
+			.stage {
+				position: relative;
+				height: auto;
+				overflow: visible;
+			}
+
+			.story-surface,
+			.chapter-nav,
+			.progress {
+				display: none;
+			}
+
+			.destination {
+				position: relative;
+				opacity: 1;
+				visibility: visible;
+				min-height: 100vh;
+			}
+
+			#journey {
+				height: auto;
+			}
+
+			.header {
+				position: relative;
+			}
+		</style>
+	</noscript>
 </body>
 
 </html>
