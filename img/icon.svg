@@ -6,7 +6,7 @@
    version="1.1"
    viewBox="0 0 2621.4 2621.4"
    id="svg4"
-   sodipodi:docname="icon-colorful.svg"
+   sodipodi:docname="icon.svg"
    inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    inkscape:export-filename="icon-colorful.png"
    inkscape:export-xdpi="96"
@@ -385,39 +385,48 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:zoom="0.75878908"
-     inkscape:cx="53.374516"
-     inkscape:cy="243.15057"
+     inkscape:cx="54.033461"
+     inkscape:cy="241.83268"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="g4" />
   <g
      stroke-width="2.7844"
      id="g4"
-     transform="translate(-9.3075751,-5.623693)">
-    <path
-       id="path1"
-       style="fill:url(#radialGradient5);stroke-width:2.78524;stroke-dasharray:none"
-       d="M 1320.0126,2558.3647 V 1316.3237 H 63.31175 c 2.8786,685.3125 561.426,1242.081 1247.39095,1242.081 3.1052,0 6.21,-0.017 9.3099,-0.04 z" />
-    <path
-       id="path5"
-       style="fill:url(#radialGradient6);stroke-width:2.78524;stroke-dasharray:none"
-       d="M 2558.0937,1316.3237 H 1320.0126 v 1242.041 c 681.7134,-5.009 1235.2169,-559.8492 1238.0811,-1242.041 z" />
-    <path
-       id="path6"
-       style="fill:url(#radialGradient11);stroke-width:2.78524;stroke-dasharray:none;filter:url(#filter24)"
-       d="M 1320.0076 63.632808 L 1320.0076 1316.3237 L 2558.0887 1316.3237 C 2558.0961 1314.5512 2558.0987 1312.778 2558.0987 1311.0038 C 2558.0987 626.34975 2003.4715 68.656077 1320.0076 63.632808 z " />
-    <path
-       id="path7"
-       style="fill:url(#radialGradient13);stroke-width:2.78524;stroke-dasharray:none;filter:url(#filter26)"
-       d="M 63.306751 1316.3237 L 1320.0076 1316.3237 L 1320.0076 63.632808 C 1316.9069 63.610019 1313.8036 63.602808 1310.6977 63.602808 C 622.93776 63.602808 63.296751 623.26371 63.296751 1311.0038 C 63.296751 1312.7788 63.299302 1314.5503 63.306751 1316.3237 z " />
+     transform="translate(-9.3075751,-5.623693)"
+     inkscape:label="logo">
+    <g
+       id="g1"
+       inkscape:label="shells">
+      <path
+         id="path1"
+         style="fill:url(#radialGradient5);stroke-width:2.78524;stroke-dasharray:none"
+         d="M 1320.0126,2558.3647 V 1316.3237 H 63.31175 c 2.8786,685.3125 561.426,1242.081 1247.39095,1242.081 3.1052,0 6.21,-0.017 9.3099,-0.04 z"
+         inkscape:label="bottom-left-shell" />
+      <path
+         id="path5"
+         style="fill:url(#radialGradient6);stroke-width:2.78524;stroke-dasharray:none"
+         d="M 2558.0937,1316.3237 H 1320.0126 v 1242.041 c 681.7134,-5.009 1235.2169,-559.8492 1238.0811,-1242.041 z"
+         inkscape:label="bottom-right-shell" />
+      <path
+         id="path6"
+         style="fill:url(#radialGradient11);stroke-width:2.78524;stroke-dasharray:none;filter:url(#filter24)"
+         d="M 1320.0076 63.632808 L 1320.0076 1316.3237 L 2558.0887 1316.3237 C 2558.0961 1314.5512 2558.0987 1312.778 2558.0987 1311.0038 C 2558.0987 626.34975 2003.4715 68.656077 1320.0076 63.632808 z "
+         inkscape:label="top-right-shell" />
+      <path
+         id="path7"
+         style="fill:url(#radialGradient13);stroke-width:2.78524;stroke-dasharray:none;filter:url(#filter26)"
+         d="M 63.306751 1316.3237 L 1320.0076 1316.3237 L 1320.0076 63.632808 C 1316.9069 63.610019 1313.8036 63.602808 1310.6977 63.602808 C 622.93776 63.602808 63.296751 623.26371 63.296751 1311.0038 C 63.296751 1312.7788 63.299302 1314.5503 63.306751 1316.3237 z "
+         inkscape:label="top-left-shell" />
+    </g>
     <path
        d="m 1373.1,276.68 c -33.466,-97.049 -87.013,-97.049 -120.49,0 l -185.18,546.63 c -32.347,97.056 -139.44,203.03 -235.38,236.5 l -543.28,185.18 c -97.049,33.466 -97.049,87.013 0,120.48 l 539.93,187.41 c 97.056,33.466 203.03,140.56 236.5,236.5 l 188.52,547.74 c 33.466,97.049 87.013,97.049 120.48,0 l 184.07,-544.39 c 32.347,-97.056 138.33,-203.03 235.38,-236.5 l 551.08,-188.53 c 97.049,-33.466 97.049,-87.013 0,-119.36 l -542.16,-182.95 c -97.056,-32.354 -203.03,-138.33 -236.5,-235.38 -3.3502,-1.112 -192.99,-553.31 -192.99,-553.31 z"
        fill="#808080"
        id="path2"
-       inkscape:label="path2"
+       inkscape:label="four-pointed-star"
        style="display:inline;fill:url(#linearGradient5);filter:url(#filter124)" />
     <path
        d="M 637.63225,2045.1597 1624.4,1619.79 2037.611,647.95862 a 46.24711,46.24711 44.972529 0 0 -60.6965,-60.63829 L 1005.44,1001.48 579.71107,1987.1983 a 44.083548,44.083548 45.019887 0 0 57.92118,57.9614 z"
@@ -425,11 +434,13 @@
        id="path3"
        style="display:inline;fill:url(#linearGradient1);stroke-width:2.78524;stroke-dasharray:none;filter:url(#filter156)"
        inkscape:path-effect="#path-effect156"
-       inkscape:original-d="m 535.7,2089.1 1088.7,-469.31 458.14,-1077.5 -1077.1,459.19 z" />
+       inkscape:original-d="m 535.7,2089.1 1088.7,-469.31 458.14,-1077.5 -1077.1,459.19 z"
+       inkscape:label="needle" />
     <path
        d="m 1305.5,1319.3 m -178.2,0 a 178.205,178.205 0 1 0 356.41,0 178.205,178.205 0 1 0 -356.41,0 z"
        fill="#e0e0e0"
        id="path4"
-       style="display:inline;fill:#229bda;fill-opacity:1;filter:url(#filter76)" />
+       style="display:inline;fill:#229bda;fill-opacity:1;filter:url(#filter76)"
+       inkscape:label="stent" />
   </g>
 </svg>
