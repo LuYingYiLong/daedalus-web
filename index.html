@@ -31,6 +31,7 @@
 	</header>
 	<main id="journey">
 		<div class="stage">
+			<div class="feature-backdrop" aria-hidden="true"></div>
 			<section class="destination" aria-labelledby="destination-title" id="studio">
 				<div class="destination-copy">
 					<p class="eyebrow">YOUR NEXT CHAPTER</p>
@@ -269,19 +270,62 @@
 						</svg>
 					</div>
 				</div>
+				<div class="feature-system" aria-label="Daedalus Studio 特性" aria-hidden="true">
+					<div class="feature-orbit feature-orbit--inner" aria-hidden="true"></div>
+					<div class="feature-orbit feature-orbit--outer" aria-hidden="true"></div>
+					<article class="feature-planet feature-planet--inner" data-order="0" data-angle="0" tabindex="0">
+						<strong data-copy="featureGodot">Godot 上下文</strong><small class="feature-planet-detail" data-copy="featureGodotDetail">场景、脚本与编辑器状态一并接入。</small>
+					</article>
+					<article class="feature-planet feature-planet--inner" data-order="1" data-angle="72" tabindex="0">
+						<strong data-copy="featureScene">场景补丁</strong><small class="feature-planet-detail" data-copy="featureSceneDetail">把改动落成可审阅的最小差异。</small>
+					</article>
+					<article class="feature-planet feature-planet--inner" data-order="2" data-angle="144" tabindex="0">
+						<strong data-copy="featureDiagnostics">LSP 诊断</strong><small class="feature-planet-detail" data-copy="featureDiagnosticsDetail">先读懂错误，再给出可执行线索。</small>
+					</article>
+					<article class="feature-planet feature-planet--inner" data-order="3" data-angle="216" tabindex="0">
+						<strong data-copy="featureWorktree">工作树隔离</strong><small class="feature-planet-detail" data-copy="featureWorktreeDetail">在独立工作树试错，保持主线整洁。</small>
+					</article>
+					<article class="feature-planet feature-planet--inner" data-order="4" data-angle="288" tabindex="0">
+						<strong data-copy="featureRuns">任务恢复</strong><small class="feature-planet-detail" data-copy="featureRunsDetail">长任务随时暂停，回来继续执行。</small>
+					</article>
+					<article class="feature-planet feature-planet--outer" data-order="5" data-angle="0" tabindex="0">
+						<strong data-copy="featureSearch">会话搜索</strong><small class="feature-planet-detail" data-copy="featureSearchDetail">跨任务找回决定、输出与上下文。</small>
+					</article>
+					<article class="feature-planet feature-planet--outer" data-order="6" data-angle="45" tabindex="0">
+						<strong data-copy="featureLocal">本地优先</strong><small class="feature-planet-detail" data-copy="featureLocalDetail">项目与记录留在本机，状态可控。</small>
+					</article>
+					<article class="feature-planet feature-planet--outer" data-order="7" data-angle="90" tabindex="0">
+						<strong data-copy="featureUndo">撤销 / 重做</strong><small class="feature-planet-detail" data-copy="featureUndoDetail">每次修改都能回到上一个确定状态。</small>
+					</article>
+					<article class="feature-planet feature-planet--outer" data-order="8" data-angle="135" tabindex="0">
+						<strong data-copy="featureApproval">审批边界</strong><small class="feature-planet-detail" data-copy="featureApprovalDetail">写入前先看差异，再决定是否放行。</small>
+					</article>
+					<article class="feature-planet feature-planet--outer" data-order="9" data-angle="180" tabindex="0">
+						<strong data-copy="featureMcp">MCP</strong><small class="feature-planet-detail" data-copy="featureMcpDetail">连接外部工具，让工作流继续延伸。</small>
+					</article>
+					<article class="feature-planet feature-planet--outer" data-order="10" data-angle="225" tabindex="0">
+						<strong data-copy="featureSkills">Skills</strong><small class="feature-planet-detail" data-copy="featureSkillsDetail">把重复流程封装成可复用能力。</small>
+					</article>
+					<article class="feature-planet feature-planet--outer" data-order="11" data-angle="270" tabindex="0">
+						<strong data-copy="featureComputer">Computer Use</strong><small class="feature-planet-detail" data-copy="featureComputerDetail">替你操作界面，关键步骤仍可见。</small>
+					</article>
+					<article class="feature-planet feature-planet--outer" data-order="12" data-angle="315" tabindex="0">
+						<strong data-copy="featureProviders">模型路由</strong><small class="feature-planet-detail" data-copy="featureProvidersDetail">按任务选择合适模型，保持节奏。</small>
+					</article>
+				</div>
 				<div class="chapters">
 					<section class="chapter is-active" id="understand" data-chapter="0" aria-labelledby="title-0">
 						<div class="chapter-copy">
 							<p class="eyebrow">01 / CONTEXT</p>
 							<h1 id="title-0" data-copy="title0">
-								先读项目，<br /><span>再动手。</span>
+								先看懂，<br /><span>再行动。</span>
 							</h1>
 							<p class="description" data-copy="body0">
-								不用复制粘贴上下文。<br />它直接读取你的 Godot 项目，<br />理解场景、脚本和编辑器状态。
+								Godot 场景、脚本与编辑器状态，<br />一次带入上下文。
 							</p>
 						</div>
 						<aside class="chapter-detail">
-							<span class="detail-index">01 — LIVE PROJECT CONTEXT</span>
+							<span class="detail-index">01 — GODOT CONTEXT</span>
 							<h3 data-copy="detailTitle0">你的项目，不是空白对话。</h3>
 							<p data-copy="detailBody0">
 								当前场景、选中节点、脚本和诊断，<br />都成为这一次行动的上下文。
@@ -292,34 +336,16 @@
 							</div>
 						</aside>
 					</section>
-					<section class="chapter" id="plan" data-chapter="1" aria-labelledby="title-1">
+					<section class="chapter chapter--features" id="plan" data-chapter="1" aria-labelledby="title-1">
 						<div class="chapter-copy">
-							<p class="eyebrow">02 / MOMENTUM</p>
+							<p class="eyebrow">02 / FEATURES</p>
 							<h2 id="title-1" data-copy="title1">
-								复杂任务，<br /><span>随时继续。</span>
+								把能力，<br /><span>放到轨道上。</span>
 							</h2>
 							<p class="description" data-copy="body1">
-								计划、工具事件和检查点，<br />都会跟着任务保存。<br />关掉 Studio，也不会丢进度。
+								从项目上下文，到可控执行，<br />每个能力都围绕你的工作运转。
 							</p>
 						</div>
-						<aside class="chapter-detail">
-							<span class="detail-index">02 — DURABLE AGENT RUN</span>
-							<h3 data-copy="detailTitle1">一次开始，不必从头再来。</h3>
-							<p data-copy="detailBody1">
-								暂停、重启或切换工作区之后，<br />从上一个可靠状态继续。
-							</p>
-							<ol class="plan-list">
-								<li>
-									<span>01</span><span data-copy="plan1">读取现场</span><b>✓</b>
-								</li>
-								<li>
-									<span>02</span><span data-copy="plan2">执行任务</span><b>✓</b>
-								</li>
-								<li>
-									<span>03</span><span data-copy="plan3">保存进度</span><b>→</b>
-								</li>
-							</ol>
-						</aside>
 					</section>
 					<section class="chapter" id="review" data-chapter="2" aria-labelledby="title-2">
 						<div class="chapter-copy">
