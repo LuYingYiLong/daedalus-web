@@ -810,6 +810,15 @@ button:focus-visible {
 	opacity: 0;
 	visibility: hidden;
 	will-change: clip-path;
+	background: var(--bg);
+}
+
+.destination-beams {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	opacity: 0.65;
+	pointer-events: none;
 }
 
 .destination-copy {
@@ -868,6 +877,8 @@ button:focus-visible {
 }
 
 .workspace {
+	position: relative;
+	z-index: 1;
 	margin: var(--space-8) 0 0;
 	width: min(850px, 70vw);
 	min-height: 0;
