@@ -234,7 +234,6 @@ export default function App() {
 			<Header copy={copy} onLanguageChange={() => setLanguage(current => current === 'zh-CN' ? 'en' : 'zh-CN')} />
 			<main id="journey">
 				<div className="stage">
-					<div className="feature-backdrop" aria-hidden="true" />
 					<Destination copy={copy} />
 					<div className="story-surface">
 						<div className="watermark" aria-hidden="true">DAEDALUS</div>

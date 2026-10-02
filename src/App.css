@@ -28,14 +28,12 @@
 	--glow-soft: color-mix(in srgb, var(--accent) 10%, transparent);
 	--glow-strong: color-mix(in srgb, var(--accent) 44%, transparent);
 	--shadow-ink: #0009;
-	--feature-bg: #e9f4f6;
-	--feature-bg-deep: #d6e8ec;
-	--feature-ink: #0a1b23;
-	--feature-muted: #55717b;
-	--feature-line: #8eabb4;
-	--feature-accent: #168fbe;
-	--feature-planet: #f8fcfd;
-	--feature-planet-shadow: 0 20px 44px #244d5a55;
+	--feature-ink: var(--ink);
+	--feature-muted: var(--ink-secondary);
+	--feature-line: #416070;
+	--feature-accent: var(--accent);
+	--feature-planet: #101e27;
+	--feature-planet-shadow: 0 20px 44px #000a;
 
 	/* 字体：界面不使用等宽字体，代码与角度数字单独指定 */
 	--font-ui: "Manrope", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -247,18 +245,6 @@ button:focus-visible {
 	background: var(--bg);
 	contain: layout;
 	transform: translateZ(0);
-}
-
-.feature-backdrop {
-	position: absolute;
-	inset: 0;
-	z-index: 0;
-	background:
-		radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--feature-bg) 96%, white) 0%, var(--feature-bg) 46%, var(--feature-bg-deep) 100%),
-		linear-gradient(135deg, var(--feature-bg), var(--feature-bg-deep));
-	opacity: 0;
-	pointer-events: none;
-	will-change: opacity;
 }
 
 .story-surface {
@@ -549,7 +535,7 @@ button:focus-visible {
 	position: absolute;
 	inset: -1px;
 	border-radius: 50%;
-	background: var(--feature-mask, var(--feature-bg));
+	background: var(--bg);
 	z-index: 0;
 }
 
@@ -588,8 +574,8 @@ button:focus-visible {
 	height: clamp(96px, 10vw, 136px);
 	border-radius: var(--radius-card);
 	box-shadow: var(--feature-planet-shadow);
-	border-color: color-mix(in srgb, var(--feature-accent) 44%, white);
-	background: radial-gradient(circle at 34% 28%, white 0%, var(--feature-planet) 58%, #d6e9ed 100%);
+	border-color: color-mix(in srgb, var(--feature-accent) 58%, transparent);
+	background: radial-gradient(circle at 34% 28%, var(--surface-raised) 0%, var(--feature-planet) 72%, var(--surface) 100%);
 	z-index: 20;
 }
 
@@ -611,51 +597,6 @@ button:focus-visible {
 .feature-planet:focus-visible {
 	outline: 2px solid var(--feature-accent);
 	outline-offset: 4px;
-}
-
-.stage.is-features .watermark {
-	color: #d2e4e8;
-}
-
-.stage.is-features .compass-caption,
-.stage.is-features .stage-bottom {
-	color: var(--feature-muted);
-}
-
-.compass-caption,
-.stage-bottom {
-	transition: color 560ms var(--ease-smooth);
-}
-
-.stage.is-features .compass-caption #angle {
-	color: var(--feature-accent);
-}
-
-.stage.is-features .chapter-nav {
-	border-color: #83a7b255;
-	background: #d8e8ecb8;
-	box-shadow: 0 8px 32px #52798622;
-}
-
-.chapter-nav {
-	transition: border-color 560ms var(--ease-smooth), background 560ms var(--ease-smooth), box-shadow 560ms var(--ease-smooth);
-}
-
-.stage.is-features .ruler-ticks i {
-	background: color-mix(in srgb, #527783, var(--feature-accent) calc(var(--activity) * 100%));
-}
-
-.ruler-ticks i {
-	transition: background 560ms var(--ease-smooth);
-}
-
-.stage.is-features .ruler-cursor {
-	background: var(--feature-accent);
-	box-shadow: 0 0 12px #168fbe66;
-}
-
-.ruler-cursor {
-	transition: background 560ms var(--ease-smooth), box-shadow 560ms var(--ease-smooth);
 }
 
 .detail-index {
@@ -1324,7 +1265,6 @@ button:focus-visible {
 	.compass-caption,
 	.stage-bottom,
 	.chapter-nav,
-	.feature-backdrop,
 	.feature-system,
 	.feature-labels,
 	.progress {

@@ -9,7 +9,6 @@ export function initCompass(root) {
 	const destination = root.querySelector('.destination');
 	const stage = root.querySelector('.stage');
 	const header = root.querySelector('.header');
-	const featureBackdrop = root.querySelector('.feature-backdrop');
 	const featureSystem = root.querySelector('.feature-system');
 	const featurePlanets = [...root.querySelectorAll('.feature-system .feature-planet')];
 	const featureLabelsLayer = root.querySelector('.feature-labels');
@@ -106,12 +105,10 @@ export function initCompass(root) {
 		if (compactLayout.matches) {
 			displayedProgress = null;
 			previousFrameTime = 0;
-			featureBackdrop.style.opacity = '0';
 			featureSystem.style.opacity = '0';
 			featureSystem.style.visibility = 'hidden';
 			featureLabelsLayer.style.opacity = '0';
 			featureLabelsLayer.style.visibility = 'hidden';
-			stage.classList.remove('is-features');
 			chapters.forEach(chapter => { chapter.inert = false; chapter.removeAttribute('aria-hidden'); });
 			destination.inert = false;
 			destination.removeAttribute('aria-hidden');
@@ -136,7 +133,6 @@ export function initCompass(root) {
 		const featureEnter = ease((position - 0.72) / 0.34);
 		const featureExit = 1 - ease((position - 2.58) / 0.42);
 		const featureOpacity = featureEnter * featureExit;
-		const featureBackgroundOpacity = featureEnter * (1 - ease((position - 1.65) / 0.4));
 		const featureScale = 0.03
 			+ ease((position - 0.72) / 0.5) * 0.55
 			+ ease((position - 1.15) / 0.85) * 0.55
@@ -161,7 +157,6 @@ export function initCompass(root) {
 				item.style.transform = reducedMotion.matches ? 'none' : `translateY(${flowOffset}px)`;
 			});
 		});
-		featureBackdrop.style.opacity = featureBackgroundOpacity.toFixed(4);
 		featureSystem.style.opacity = featureOpacity.toFixed(4);
 		featureSystem.style.visibility = featureOpacity > 0.001 ? 'visible' : 'hidden';
 		featureSystem.inert = featureOpacity < 0.05;
@@ -171,15 +166,6 @@ export function initCompass(root) {
 		featureLabelsLayer.inert = featureOpacity < 0.05;
 		featureLabelsLayer.setAttribute('aria-hidden', String(featureOpacity < 0.05));
 		featureSystem.style.setProperty('--system-scale', featureScale.toFixed(4));
-		const featureBlend = Math.round(featureBackgroundOpacity * 100);
-		featureSystem.style.setProperty('--feature-mask', `color-mix(in srgb, var(--feature-bg) ${featureBlend}%, var(--bg))`);
-		const featureText = `color-mix(in srgb, var(--feature-ink) ${featureBlend}%, var(--ink))`;
-		const featureTextMuted = `color-mix(in srgb, var(--feature-muted) ${featureBlend}%, var(--ink-secondary))`;
-		featureSystem.style.setProperty('--feature-text', featureText);
-		featureSystem.style.setProperty('--feature-text-muted', featureTextMuted);
-		featureLabelsLayer.style.setProperty('--feature-text', featureText);
-		featureLabelsLayer.style.setProperty('--feature-text-muted', featureTextMuted);
-		stage.classList.toggle('is-features', featureBackgroundOpacity > 0.5);
 		featurePlanets.forEach((planet, index) => {
 			const baseAngle = Number(planet.dataset.angle ?? 0);
 			const speed = index < 5 ? 16 : -12;
